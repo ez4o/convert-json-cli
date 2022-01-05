@@ -1,9 +1,6 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
-
 	"ez4o.com/json-to/model"
 )
 
@@ -24,16 +21,8 @@ func main() {
 ]`
 
 	jc := model.JSONConverter{Writer: &model.GoWriter{}}
-
-	abstractStructs, err := jc.GetAbstractStructs(jsonString)
+	err := jc.Convert(jsonString)
 	if err != nil {
 		panic(err)
 	}
-
-	b, err := json.MarshalIndent(abstractStructs, "", " ")
-	if err != nil {
-		panic(err)
-	}
-
-	fmt.Println(string(b))
 }
