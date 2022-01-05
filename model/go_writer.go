@@ -1,8 +1,10 @@
 package model
 
 import (
+	"fmt"
 	"os"
 	"path"
+	"strings"
 )
 
 type GoWriter struct {
@@ -62,7 +64,7 @@ func (gw *GoWriter) GetField(field Field) string {
 		typeName = gw.GetTypeName(field.TypeName)
 	}
 
-	return "\t" + field.Index + "\t" + typeName + "\n"
+	return "\t" + strings.Title(field.Index) + "\t" + typeName + "\t" + fmt.Sprintf("`json: \"%s\"`", field.Index) + "\n"
 }
 
 func (gw *GoWriter) GetTypeName(typeName string) string {
