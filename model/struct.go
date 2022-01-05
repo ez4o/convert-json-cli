@@ -2,7 +2,6 @@ package model
 
 import (
 	"encoding/json"
-	"model/struct_type"
 )
 
 type Struct struct {
@@ -23,38 +22,17 @@ func Parse(name string, jsonString string) ([]Struct, error) {
 
 	err := json.Unmarshal([]byte(jsonString), &result)
 	if err != nil {
-		return abstractStructs, err
+		return nil, err
 	}
 
 	for key, value := range result {
-		f := CreateField(key, value)
-		s.AddField(f)
-
-		if f.StructType == struct_type.NonPrimitive {
-			b, err := json.Marshal(value)
-			if err != nil {
-				return abstractStructs, err
-			}
-
-			structs, err := Parse(f.TypeName, string(b))
-			if err != nil {
-				return abstractStructs, err
-			}
-
-			abstractStructs = append(abstractStructs, structs...)
-		} else if f.StructType == struct_type.NonPrimitiveArray {
-			b, err := json.Marshal(value.([]interface{})[0])
-			if err != nil {
-				return abstractStructs, err
-			}
-
-			structs, err := Parse(f.TypeName[:len(f.TypeName)-2], string(b))
-			if err != nil {
-				return abstractStructs, err
-			}
-
-			abstractStructs = append(abstractStructs, structs...)
+		f, additionalStructs, err := CreateField(key, value)
+		if err != nil {
+			return nil, err
 		}
+
+		s.AddField(f)
+		abstractStructs = append(abstractStructs, additionalStructs...)
 	}
 
 	abstractStructs = append(abstractStructs, s)
