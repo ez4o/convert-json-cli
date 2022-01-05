@@ -1,3 +1,3 @@
-module ez4o.com/json-to
+module ez4o.com/convert-json
 
 go 1.17
