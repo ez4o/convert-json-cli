@@ -6,4 +6,5 @@ type IWriter interface {
 	GetStruct(abstractStruct Struct) string
 	GetFields(fields []Field) string
 	GetField(field Field) string
+	GetTypeName(typeName string) string
 }

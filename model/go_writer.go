@@ -14,7 +14,7 @@ func (gw *GoWriter) SetNested(nested bool) {
 }
 
 func (gw *GoWriter) Write(abstractStructs []Struct) error {
-	file, err := os.Create(path.Join("out", "result.go"))
+	file, err := os.Create(path.Join("out", "go_result.go"))
 	if err != nil {
 		return err
 	}
@@ -57,10 +57,14 @@ func (gw *GoWriter) GetField(field Field) string {
 	var typeName string = ""
 
 	if field.TypeName[len(field.TypeName)-2:] == "[]" {
-		typeName = "[]" + field.TypeName[:len(field.TypeName)-2]
+		typeName = "[]" + gw.GetTypeName(field.TypeName[:len(field.TypeName)-2])
 	} else {
-		typeName = field.TypeName
+		typeName = gw.GetTypeName(field.TypeName)
 	}
 
 	return "\t" + field.Index + "\t" + typeName + "\n"
+}
+
+func (gw *GoWriter) GetTypeName(typeName string) string {
+	return typeName
 }
