@@ -14,6 +14,9 @@ func (cw *CppWriter) Write(abstractStructs []Struct) error {
 	defer file.Close()
 
 	_, err = file.WriteString("#include <iostream>\n#include <vector>\n#include <string>\n\n")
+	if err != nil {
+		return err
+	}
 
 	for _, abstractStruct := range abstractStructs {
 		if abstractStruct.Name == "Nested" {
@@ -72,7 +75,7 @@ func (cw *CppWriter) GetTypeName(typeName string) string {
 		return "float"
 	case "float64":
 		return "double"
+	default:
+		return typeName
 	}
-
-	return typeName
 }

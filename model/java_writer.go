@@ -14,6 +14,9 @@ func (jw *JavaWriter) Write(abstractStructs []Struct) error {
 	defer file.Close()
 
 	_, err = file.WriteString("import java.util.ArrayList;\n\n")
+	if err != nil {
+		return err
+	}
 
 	for _, abstractStruct := range abstractStructs {
 		if abstractStruct.Name == "Nested" {
@@ -67,7 +70,7 @@ func (jw *JavaWriter) GetTypeName(typeName string) string {
 		return "boolean"
 	case "string":
 		return "String"
+	default:
+		return typeName
 	}
-
-	return typeName
 }

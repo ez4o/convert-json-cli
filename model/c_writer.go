@@ -74,7 +74,7 @@ func (cw *CWriter) GetTypeName(typeName string) string {
 		return "float"
 	case "float64":
 		return "double"
+	default:
+		return "struct " + typeName
 	}
-
-	return "struct " + typeName
 }

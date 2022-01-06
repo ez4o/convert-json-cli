@@ -7,7 +7,7 @@ import (
 func main() {
 	const jsonString = `[
     {
-      "_id": 1.0,
+      "_id": 1,
       "deposit": 66666.66,
       "name": "test",
       "jobs": [
@@ -29,6 +29,7 @@ func main() {
 		&model.ProtobufWriter{},
 		&model.JavaWriter{},
 		&model.CWriter{},
+		&model.KotlinWriter{},
 	}
 
 	for _, writer := range writers {

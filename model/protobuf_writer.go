@@ -16,6 +16,11 @@ func (pw *ProtobufWriter) Write(abstractStructs []Struct) error {
 	}
 	defer file.Close()
 
+	_, err = file.WriteString("syntax = \"proto3\";\n\n")
+	if err != nil {
+		return err
+	}
+
 	for _, abstractStruct := range abstractStructs {
 		if abstractStruct.Name == "Nested" {
 			continue

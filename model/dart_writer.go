@@ -69,7 +69,7 @@ func (dw *DartWriter) GetTypeName(typeName string) string {
 		return "double"
 	case "float64":
 		return "double"
+	default:
+		return typeName
 	}
-
-	return typeName
 }
