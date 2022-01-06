@@ -22,6 +22,11 @@ func (gw *GoWriter) Write(abstractStructs []Struct) error {
 	}
 	defer file.Close()
 
+	_, err = file.WriteString("package model\n\n")
+	if err != nil {
+		return err
+	}
+
 	for _, abstractStruct := range abstractStructs {
 		if abstractStruct.Name == "Nested" {
 			continue
