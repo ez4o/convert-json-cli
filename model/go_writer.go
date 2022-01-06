@@ -53,14 +53,14 @@ func (gw *GoWriter) GetStruct(abstractStruct Struct) string {
 func (gw *GoWriter) GetFields(fields []Field) string {
 	var result string = ""
 
-	for _, field := range fields {
-		result += gw.GetField(field)
+	for i, field := range fields {
+		result += gw.GetField(i, field)
 	}
 
 	return result
 }
 
-func (gw *GoWriter) GetField(field Field) string {
+func (gw *GoWriter) GetField(_ int, field Field) string {
 	var typeName string = ""
 
 	if field.TypeName[len(field.TypeName)-2:] == "[]" {

@@ -34,14 +34,14 @@ func (dw *DartWriter) GetStruct(abstractStruct Struct) string {
 func (dw *DartWriter) GetFields(fields []Field) string {
 	var result string = ""
 
-	for _, field := range fields {
-		result += dw.GetField(field)
+	for i, field := range fields {
+		result += dw.GetField(i, field)
 	}
 
 	return result
 }
 
-func (dw *DartWriter) GetField(field Field) string {
+func (dw *DartWriter) GetField(_ int, field Field) string {
 	typeName := ""
 
 	if field.TypeName[len(field.TypeName)-2:] == "[]" {

@@ -36,14 +36,14 @@ func (cw *CppWriter) GetStruct(abstractStruct Struct) string {
 func (cw *CppWriter) GetFields(fields []Field) string {
 	var result string = ""
 
-	for _, field := range fields {
-		result += cw.GetField(field)
+	for i, field := range fields {
+		result += cw.GetField(i, field)
 	}
 
 	return result
 }
 
-func (cw *CppWriter) GetField(field Field) string {
+func (cw *CppWriter) GetField(_ int, field Field) string {
 	typeName := ""
 
 	if field.TypeName[len(field.TypeName)-2:] == "[]" {

@@ -12,7 +12,8 @@ func main() {
       "jobs": [
         {
           "company": {
-            "name": "test_company"
+            "name": "test_company",
+            "bankrupt": false
           },
           "title": ["test"]
         }
@@ -21,9 +22,10 @@ func main() {
   ]`
 
 	writers := []model.IWriter{
+		&model.GoWriter{},
 		&model.DartWriter{},
 		&model.CppWriter{},
-		&model.GoWriter{},
+		&model.ProtobufWriter{},
 	}
 
 	for _, writer := range writers {
