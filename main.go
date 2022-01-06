@@ -30,6 +30,7 @@ func main() {
 		&model.JavaWriter{},
 		&model.CWriter{},
 		&model.KotlinWriter{},
+		&model.PythonWriter{},
 	}
 
 	for _, writer := range writers {
