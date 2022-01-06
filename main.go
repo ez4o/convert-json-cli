@@ -1,7 +1,7 @@
 package main
 
 import (
-	"ez4o.com/convert-json/model"
+	"ez4o.com/convert-json-cli/model"
 )
 
 func main() {
