@@ -28,6 +28,7 @@ func main() {
 		&model.CppWriter{},
 		&model.ProtobufWriter{},
 		&model.JavaWriter{},
+		&model.CWriter{},
 	}
 
 	for _, writer := range writers {
