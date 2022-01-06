@@ -66,14 +66,14 @@ func (pw *PythonWriter) GetTypeName(typeName string) string {
 		return "int"
 	case "int64":
 		return "int"
-	case "string":
-		return "str"
-	case "bool":
-		return "bool"
 	case "float32":
 		return "float"
 	case "float64":
 		return "float"
+	case "string":
+		return "str"
+	case "bool":
+		return "bool"
 	default:
 		return typeName
 	}
