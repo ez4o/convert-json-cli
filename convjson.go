@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"strings"
 
 	"ez4o.com/convert-json-cli/model"
 )
@@ -30,10 +31,27 @@ var (
 		// "scala":      &model.ScalaWriter{},
 		// "rust":       &model.RustWriter{},
 	}
+	extensions map[string]string = map[string]string{
+		"c":          ".c",
+		"go":         ".go",
+		"cpp":        ".cpp",
+		"dart":       ".dart",
+		"java":       ".java",
+		"kotlin":     ".kt",
+		"python":     ".py",
+		"protobuf":   ".proto",
+		"typescript": ".ts",
+		// "ruby":       ".rb",
+		// "csharp":     ".cs",
+		// "swift":      ".swift",
+		// "php":        ".php",
+		// "scala":      ".scala",
+		// "rust":       ".rs",
+	}
 )
 
 func init() {
-	flag.StringVar(&outputPath, "o", ".", "Specify ouput file path.")
+	flag.StringVar(&outputPath, "o", "", "Specify ouput file path.")
 	flag.Usage = usage
 }
 
@@ -59,7 +77,10 @@ func main() {
 	inputPath = flag.Arg(0)
 	targetLanguage = flag.Arg(1)
 
-	fmt.Println(inputPath)
+	if inputPath == "" || targetLanguage == "" {
+		flag.Usage()
+		return
+	}
 
 	jsonFile, err := os.Open(inputPath)
 	if err != nil {
@@ -70,6 +91,10 @@ func main() {
 	bytes, err := ioutil.ReadAll(jsonFile)
 	if err != nil {
 		panic(err)
+	}
+
+	if outputPath == "" {
+		outputPath = strings.TrimSuffix(inputPath, ".json") + extensions[targetLanguage]
 	}
 
 	w := writers[targetLanguage]
@@ -83,4 +108,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	fmt.Printf("Successfully convert %s to %s.\n", inputPath, outputPath)
 }
