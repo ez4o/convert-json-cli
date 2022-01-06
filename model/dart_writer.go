@@ -42,7 +42,7 @@ func (dw *DartWriter) GetFields(fields []Field) string {
 }
 
 func (dw *DartWriter) GetField(_ int, field Field) string {
-	typeName := ""
+	var typeName string = ""
 
 	if field.TypeName[len(field.TypeName)-2:] == "[]" {
 		typeName = "List<" + dw.GetTypeName(field.TypeName[:len(field.TypeName)-2]) + ">?"
@@ -56,9 +56,9 @@ func (dw *DartWriter) GetField(_ int, field Field) string {
 func (dw *DartWriter) GetTypeName(typeName string) string {
 	switch typeName {
 	case "int":
-	case "int8":
-	case "int16":
+		return "int"
 	case "int32":
+		return "int"
 	case "int64":
 		return "int"
 	case "string":
@@ -66,6 +66,7 @@ func (dw *DartWriter) GetTypeName(typeName string) string {
 	case "bool":
 		return "bool"
 	case "float32":
+		return "double"
 	case "float64":
 		return "double"
 	}

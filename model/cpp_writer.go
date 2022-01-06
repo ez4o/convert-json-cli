@@ -59,8 +59,6 @@ func (cw *CppWriter) GetTypeName(typeName string) string {
 	// https://en.cppreference.com/w/cpp/language/types
 	switch typeName {
 	case "int":
-	case "int8":
-	case "int16":
 		return "short int"
 	case "int32":
 		return "int"

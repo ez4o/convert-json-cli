@@ -61,13 +61,13 @@ func (pw *ProtobufWriter) GetField(i int, field Field) string {
 func (pw *ProtobufWriter) GetTypeName(typeName string) string {
 	switch typeName {
 	case "int":
-	case "int8":
-	case "int16":
+		return "int32"
 	case "int32":
 		return "int32"
 	case "int64":
 		return "int64"
 	case "float32":
+		return "double"
 	case "float64":
 		return "double"
 	case "string":
