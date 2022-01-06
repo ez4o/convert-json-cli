@@ -2,12 +2,18 @@ package model
 
 import "os"
 
-type JavaWriter struct{}
+type JavaWriter struct {
+	outputPath string
+}
+
+func (jw *JavaWriter) SetOutputPath(outputPath string) {
+	jw.outputPath = outputPath
+}
 
 func (jw *JavaWriter) SetNested(nested bool) {}
 
 func (jw *JavaWriter) Write(abstractStructs []Struct) error {
-	file, err := os.Create("out/java_result.java")
+	file, err := os.Create(jw.outputPath)
 	if err != nil {
 		return err
 	}

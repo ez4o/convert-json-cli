@@ -3,7 +3,12 @@ package model
 import "os"
 
 type TypeScriptWriter struct {
-	nested bool
+	outputPath string
+	nested     bool
+}
+
+func (tsw *TypeScriptWriter) SetOutputPath(outputPath string) {
+	tsw.outputPath = outputPath
 }
 
 func (tsw *TypeScriptWriter) SetNested(nested bool) {
@@ -11,7 +16,7 @@ func (tsw *TypeScriptWriter) SetNested(nested bool) {
 }
 
 func (tsw *TypeScriptWriter) Write(abstractStructs []Struct) error {
-	file, err := os.Create("out/typescript_result.ts")
+	file, err := os.Create(tsw.outputPath)
 	if err != nil {
 		return err
 	}

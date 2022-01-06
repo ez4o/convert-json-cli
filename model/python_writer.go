@@ -2,12 +2,18 @@ package model
 
 import "os"
 
-type PythonWriter struct{}
+type PythonWriter struct {
+	outputPath string
+}
+
+func (pw *PythonWriter) SetOutputPath(outputPath string) {
+	pw.outputPath = outputPath
+}
 
 func (pw *PythonWriter) SetNested(nested bool) {}
 
 func (pw *PythonWriter) Write(abstractStructs []Struct) error {
-	file, err := os.Create("out/python_result.py")
+	file, err := os.Create(pw.outputPath)
 	if err != nil {
 		return err
 	}

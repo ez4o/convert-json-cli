@@ -3,7 +3,12 @@ package model
 import "os"
 
 type KotlinWriter struct {
-	nester bool
+	outputPath string
+	nester     bool
+}
+
+func (kw *KotlinWriter) SetOutputPath(outputPath string) {
+	kw.outputPath = outputPath
 }
 
 func (kw *KotlinWriter) SetNested(nested bool) {
@@ -11,7 +16,7 @@ func (kw *KotlinWriter) SetNested(nested bool) {
 }
 
 func (kw *KotlinWriter) Write(abstractStructs []Struct) error {
-	file, err := os.Create("out/kotlin_result.kt")
+	file, err := os.Create(kw.outputPath)
 	if err != nil {
 		return err
 	}

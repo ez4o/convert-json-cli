@@ -3,12 +3,16 @@ package model
 import (
 	"fmt"
 	"os"
-	"path"
 	"strings"
 )
 
 type GoWriter struct {
-	nested bool
+	outputPath string
+	nested     bool
+}
+
+func (gw *GoWriter) SetOutputPath(outputPath string) {
+	gw.outputPath = outputPath
 }
 
 func (gw *GoWriter) SetNested(nested bool) {
@@ -16,7 +20,7 @@ func (gw *GoWriter) SetNested(nested bool) {
 }
 
 func (gw *GoWriter) Write(abstractStructs []Struct) error {
-	file, err := os.Create(path.Join("out", "go_result.go"))
+	file, err := os.Create(gw.outputPath)
 	if err != nil {
 		return err
 	}
@@ -69,7 +73,7 @@ func (gw *GoWriter) GetField(_ int, field Field) string {
 		typeName = gw.GetTypeName(field.TypeName)
 	}
 
-	return "\t" + strings.Title(field.Index) + "\t" + typeName + "\t" + fmt.Sprintf("`json: \"%s\"`", field.Index) + "\n"
+	return "\t" + strings.Title(field.Index) + "\t" + typeName + "\t" + fmt.Sprintf("`json:\"%s\"`", field.Index) + "\n"
 }
 
 func (gw *GoWriter) GetTypeName(typeName string) string {

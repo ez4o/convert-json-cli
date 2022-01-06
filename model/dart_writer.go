@@ -2,12 +2,18 @@ package model
 
 import "os"
 
-type DartWriter struct{}
+type DartWriter struct {
+	outputPath string
+}
+
+func (dw *DartWriter) SetOutputPath(outputPath string) {
+	dw.outputPath = outputPath
+}
 
 func (dw *DartWriter) SetNested(nested bool) {}
 
 func (dw *DartWriter) Write(abstractStructs []Struct) error {
-	file, err := os.Create("out/dart_result.dart")
+	file, err := os.Create(dw.outputPath)
 	if err != nil {
 		return err
 	}

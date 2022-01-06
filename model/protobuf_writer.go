@@ -5,12 +5,18 @@ import (
 	"os"
 )
 
-type ProtobufWriter struct{}
+type ProtobufWriter struct {
+	outputPath string
+}
+
+func (pw *ProtobufWriter) SetOutputPath(outputPath string) {
+	pw.outputPath = outputPath
+}
 
 func (pw *ProtobufWriter) SetNested(nested bool) {}
 
 func (pw *ProtobufWriter) Write(abstractStructs []Struct) error {
-	file, err := os.Create("out/protobuf_result.proto")
+	file, err := os.Create(pw.outputPath)
 	if err != nil {
 		return err
 	}

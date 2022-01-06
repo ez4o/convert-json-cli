@@ -2,12 +2,18 @@ package model
 
 import "os"
 
-type CppWriter struct{}
+type CppWriter struct {
+	outputPath string
+}
+
+func (cw *CppWriter) SetOutputPath(outputPath string) {
+	cw.outputPath = outputPath
+}
 
 func (cw *CppWriter) SetNested(nested bool) {}
 
 func (cw *CppWriter) Write(abstractStructs []Struct) error {
-	file, err := os.Create("out/cpp_result.cpp")
+	file, err := os.Create(cw.outputPath)
 	if err != nil {
 		return err
 	}
