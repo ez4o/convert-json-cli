@@ -53,7 +53,7 @@
 
 ## About The Project
 
-<img src="https://i.imgur.com/FmvyJQj.png" height="320"></img>
+<img src="https://i.imgur.com/NpjLYx7.png" height="320"></img>
 
 **Convert-JSON-CLI** is an excellent tool for converting json files to structs
 or classes in any programming language.
