@@ -26,8 +26,7 @@ var (
 		"typescript": &model.TypeScriptWriter{},
 		"csharp":     &model.CSharpWriter{},
 		"swift":      &model.SwiftWriter{},
-		// "ruby":       &model.RubyWriter{},
-		// "php":        &model.PhpWriter{},
+		"php":        &model.PHPWriter{},
 		// "scala":      &model.ScalaWriter{},
 		// "rust":       &model.RustWriter{},
 	}
@@ -43,8 +42,7 @@ var (
 		"typescript": ".ts",
 		"csharp":     ".cs",
 		"swift":      ".swift",
-		// "ruby":       ".rb",
-		// "php":        ".php",
+		"php":        ".php",
 		// "scala":      ".scala",
 		// "rust":       ".rs",
 	}
