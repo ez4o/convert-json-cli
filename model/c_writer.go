@@ -66,7 +66,7 @@ func (cw *CWriter) GetField(_ int, field Field) string {
 
 func (cw *CWriter) GetTypeName(typeName string) string {
 	switch typeName {
-	case "int":
+	case "int16":
 		return "short int"
 	case "int32":
 		return "int"

@@ -62,7 +62,7 @@ func (sw *ScalaWriter) GetField(_ int, field Field) string {
 func (sw *ScalaWriter) GetTypeName(typeName string) string {
 	// https://docs.scala-lang.org/overviews/scala-book/built-in-types.html
 	switch typeName {
-	case "int":
+	case "int16":
 		return "Short"
 	case "int32":
 		return "Int"

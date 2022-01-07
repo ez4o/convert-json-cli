@@ -61,7 +61,7 @@ func (dw *DartWriter) GetField(_ int, field Field) string {
 
 func (dw *DartWriter) GetTypeName(typeName string) string {
 	switch typeName {
-	case "int":
+	case "int16":
 		return "int"
 	case "int32":
 		return "int"

@@ -82,7 +82,7 @@ func (kw *KotlinWriter) GetField(_ int, field Field) string {
 
 func (kw *KotlinWriter) GetTypeName(typeName string) string {
 	switch typeName {
-	case "int":
+	case "int16":
 		return "Int"
 	case "int32":
 		return "Int"

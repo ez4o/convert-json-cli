@@ -67,7 +67,7 @@ func (pw *PHPWriter) GetField(_ int, field Field) string {
 func (pw *PHPWriter) GetTypeName(typeName string) string {
 	// https://www.php.net/manual/en/language.types.intro.php
 	switch typeName {
-	case "int":
+	case "int16":
 		return "int"
 	case "int32":
 		return "int"

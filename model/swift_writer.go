@@ -70,7 +70,7 @@ func (sw *SwiftWriter) GetField(_ int, field Field) string {
 
 func (sw *SwiftWriter) GetTypeName(typeName string) string {
 	switch typeName {
-	case "int":
+	case "int16":
 		return "Int"
 	case "int32":
 		return "Int"

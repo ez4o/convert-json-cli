@@ -62,7 +62,7 @@ func (jw *JavaWriter) GetField(_ int, field Field) string {
 
 func (jw *JavaWriter) GetTypeName(typeName string) string {
 	switch typeName {
-	case "int":
+	case "int16":
 		return "int"
 	case "int32":
 		return "int"

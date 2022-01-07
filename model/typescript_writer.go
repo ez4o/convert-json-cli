@@ -68,7 +68,7 @@ func (tsw *TypeScriptWriter) GetField(_ int, field Field) string {
 
 func (tsw *TypeScriptWriter) GetTypeName(typeName string) string {
 	switch typeName {
-	case "int":
+	case "int16":
 		return "number"
 	case "int32":
 		return "number"

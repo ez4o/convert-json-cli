@@ -71,7 +71,7 @@ func (pw *ProtobufWriter) GetField(i int, field Field) string {
 
 func (pw *ProtobufWriter) GetTypeName(typeName string) string {
 	switch typeName {
-	case "int":
+	case "int16":
 		return "int32"
 	case "int32":
 		return "int32"

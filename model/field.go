@@ -79,7 +79,7 @@ func IsPrimitive(v interface{}) (string, bool) {
 
 	if strings.Contains(typeName, "float") {
 		if _, err := strconv.ParseInt(fmt.Sprintf("%v", v), 10, 16); err == nil {
-			return "int", true
+			return "int16", true
 		} else if _, err := strconv.ParseInt(fmt.Sprintf("%v", v), 10, 32); err == nil {
 			return "int32", true
 		} else if _, err := strconv.ParseInt(fmt.Sprintf("%v", v), 10, 64); err == nil {

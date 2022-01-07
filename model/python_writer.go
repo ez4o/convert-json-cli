@@ -66,7 +66,7 @@ func (pw *PythonWriter) GetField(_ int, field Field) string {
 
 func (pw *PythonWriter) GetTypeName(typeName string) string {
 	switch typeName {
-	case "int":
+	case "int16":
 		return "int"
 	case "int32":
 		return "int"
