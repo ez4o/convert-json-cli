@@ -33,6 +33,7 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
+      <a href="#supported-languages">Supported Languages</a>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -62,6 +63,26 @@ It currently only supports command line interface, but a web version will be
 developed in the near future!
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+## Supported Languages
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="64"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" width="64"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" width="64"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" width="64"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg" width="64"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="64"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" width="64"/>
+
+<br />
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" width="64"/>
+<img src="https://i.imgur.com/WhEiv1v.png" width="64"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="64"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg" width="64"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scala/scala-original.svg" width="64"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" width="64"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="64"/>
 
 <!-- GETTING STARTED -->
 
@@ -131,7 +152,8 @@ these simple steps.
 
 ### Generate Executable File
 
-1. Use release command, and it will generate a executable file in root directory.
+1. Use release command, and it will generate a executable file in root
+   directory.
 
    ```sh
    make release-windows
