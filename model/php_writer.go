@@ -56,7 +56,7 @@ func (pw *PHPWriter) GetField(_ int, field Field) string {
 	var typeName string = ""
 
 	if field.TypeName[len(field.TypeName)-2:] == "[]" {
-		typeName = "array(" + pw.GetTypeName(field.TypeName) + ")"
+		typeName = "array(" + pw.GetTypeName(field.TypeName[:len(field.TypeName)-2]) + ")"
 	} else {
 		typeName = pw.GetTypeName(field.TypeName)
 	}
@@ -82,6 +82,6 @@ func (pw *PHPWriter) GetTypeName(typeName string) string {
 	case "bool":
 		return "bool"
 	default:
-		return "object"
+		return typeName
 	}
 }
