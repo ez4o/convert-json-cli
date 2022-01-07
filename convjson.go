@@ -27,7 +27,7 @@ var (
 		"csharp":     &model.CSharpWriter{},
 		"swift":      &model.SwiftWriter{},
 		"php":        &model.PHPWriter{},
-		// "scala":      &model.ScalaWriter{},
+		"scala":      &model.ScalaWriter{},
 		// "rust":       &model.RustWriter{},
 	}
 	extensions map[string]string = map[string]string{
@@ -43,7 +43,7 @@ var (
 		"csharp":     ".cs",
 		"swift":      ".swift",
 		"php":        ".php",
-		// "scala":      ".scala",
+		"scala":      ".scala",
 		// "rust":       ".rs",
 	}
 )
