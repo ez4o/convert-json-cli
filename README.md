@@ -84,11 +84,11 @@ developed in the near future!
 
 ### Parameters
 
-| Parameter         | Necessity | Description                                                                                                                                              | Default Value                                           |
-| ----------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
-| `INPUT_FILE_PATH` | Required  | Path to your JSON file.                                                                                                                                  | None                                                    |
-| `TARGET_LANGUAGE` | Required  | Target language. Currently supports: <br /> [go] [php] [python] [c] [swift] [csharp] [protobuf] [rust] [scala] [kotlin] [cpp] [dart] [java] [typescript] | None                                                    |
-| `-o string`       | Optional  | Background image. Use url encode tool like <https://www.urlencoder.org/>.                                                                                | **.\\**[INPUT_FILE_DIR]**.**[TARGET_LANGUAGE_EXTENSION] |
+| Parameter         | Necessity | Description                                                                                                                                              | Default Value                                    |
+| ----------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| `INPUT_FILE_PATH` | Required  | Path to your JSON file.                                                                                                                                  | None                                             |
+| `TARGET_LANGUAGE` | Required  | Target language. Currently supports: <br /> [go] [php] [python] [c] [swift] [csharp] [protobuf] [rust] [scala] [kotlin] [cpp] [dart] [java] [typescript] | None                                             |
+| `-o string`       | Optional  | Background image. Use url encode tool like <https://www.urlencoder.org/>.                                                                                | `.\[INPUT_FILE_DIR].[TARGET_LANGUAGE_EXTENSION]` |
 
 ### Example
 
