@@ -54,7 +54,7 @@ func (jw *JavaWriter) GetFields(fields []Field) string {
 
 func (jw *JavaWriter) GetField(_ int, field Field) string {
 	if field.TypeName[len(field.TypeName)-2:] == "[]" {
-		return "\tpublic ArrayList<" + jw.GetTypeName(field.TypeName[:len(field.TypeName)-2]) + ">  " + field.Index + " = new ArrayList<" + jw.GetTypeName(field.TypeName[:len(field.TypeName)-2]) + ">();\n"
+		return "\tpublic ArrayList<" + jw.GetTypeName(field.TypeName[:len(field.TypeName)-2]) + "> " + field.Index + " = new ArrayList<" + jw.GetTypeName(field.TypeName[:len(field.TypeName)-2]) + ">();\n"
 	} else {
 		return "\tpublic " + jw.GetTypeName(field.TypeName) + " " + field.Index + ";\n"
 	}
