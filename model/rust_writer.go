@@ -83,7 +83,7 @@ func (rw *RustWriter) GetField(_ int, field Field) string {
 		index = field.Index
 	}
 
-	return serdesAnnotation + "\t" + typeName + " " + index + ";\n"
+	return serdesAnnotation + "\tpub " + index + ": " + typeName + ",\n"
 }
 
 func (rw *RustWriter) GetTypeName(typeName string) string {
