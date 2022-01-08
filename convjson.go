@@ -69,6 +69,16 @@ func usage() {
 	flag.PrintDefaults()
 }
 
+func handlePanic(err interface{}) {
+	if _, ok := err.(error); ok {
+		fmt.Fprintf(os.Stderr, "Could not read input file: %s\n", err.(error).Error())
+	} else {
+		fmt.Fprintf(os.Stderr, "%v\n", err)
+	}
+
+	os.Exit(2)
+}
+
 func main() {
 	flag.Parse()
 
@@ -82,13 +92,13 @@ func main() {
 
 	jsonFile, err := os.Open(inputPath)
 	if err != nil {
-		panic(err)
+		handlePanic(err)
 	}
 	defer jsonFile.Close()
 
 	bytes, err := ioutil.ReadAll(jsonFile)
 	if err != nil {
-		panic(err)
+		handlePanic(err)
 	}
 
 	if outputPath == "" {
@@ -97,14 +107,14 @@ func main() {
 
 	w := writers[targetLanguage]
 	if w == nil {
-		panic("Target language is not supported.")
+		handlePanic("Target language is not supported.")
 	}
 	w.SetOutputPath(outputPath)
 
 	jc := model.JSONConverter{Writer: w}
 	err = jc.Convert(string(bytes))
 	if err != nil {
-		panic(err)
+		handlePanic(err)
 	}
 
 	fmt.Printf("Successfully convert %s to %s.\n", inputPath, outputPath)
