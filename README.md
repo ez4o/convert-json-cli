@@ -91,7 +91,7 @@ Download latest executable files via:
 | ----------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
 | `INPUT_FILE_PATH` | Required  | Path to your JSON file.                                                                                                                                  | None                                             |
 | `TARGET_LANGUAGE` | Required  | Target language. Currently supports: <br /> [go] [php] [python] [c] [swift] [csharp] [protobuf] [rust] [scala] [kotlin] [cpp] [dart] [java] [typescript] | None                                             |
-| `-o string`       | Optional  | Background image. Use url encode tool like <https://www.urlencoder.org/>.                                                                                | `.\[INPUT_FILE_DIR].[TARGET_LANGUAGE_EXTENSION]` |
+| `-o string`       | Optional  | Path to output file.                                                                                                                                     | `.\[INPUT_FILE_DIR].[TARGET_LANGUAGE_EXTENSION]` |
 
 ### Example
 
