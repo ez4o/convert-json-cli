@@ -76,7 +76,10 @@ developed in the near future!
 
 ## Getting Started
 
-<!-- USAGE EXAMPLES -->
+### Download
+
+Download latest executable files via:
+<https://github.com/ez4o/convert-json-cli/releases>.
 
 ### Usage
 
