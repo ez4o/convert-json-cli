@@ -1,9 +1,9 @@
-release-windows:
-	@go build -o .\convjson.exe
+.PHONY: all clean build-windows build-linux
 
-release-linux:
-	@set CGO_ENABLED=0&& set GOOS=linux&& set GOARCH=amd64&& go build -o ./convjson
+all: build-windows build-linux
 
-release-all:
-	@make release-windows
-	@make release-linux
+build-windows:
+	go build -o .\convjson.exe
+
+build-linux:
+	set CGO_ENABLED=0&& set GOOS=linux&& set GOARCH=amd64&& go build -o ./convjson
